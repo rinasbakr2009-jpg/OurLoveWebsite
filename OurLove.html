@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Alicia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fffdfa;
+            --accent-pink: #fce4ec;
+            --accent-lavender: #f3e5f5;
+            --text-dark: #4a4a4a;
+            --text-muted: #7d7d7d;
+            --serif: 'Playfair Display', serif;
+            --sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: var(--sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Fade-in Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, var(--accent-pink) 0%, var(--bg-color) 100%);
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-family: var(--serif);
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .hero-content p {
+            font-style: italic;
+            font-family: var(--serif);
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '❤';
+            display: block;
+            font-size: 1rem;
+            color: #f8bbd0;
+            margin-top: 10px;
+        }
+
+        /* Our Story */
+        .story-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            text-align: center;
+            border: 1px solid var(--accent-lavender);
+        }
+
+        .story-box p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        /* Photo Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 15px;
+            background-color: #eee;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Why I Love You */
+        .love-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .love-item {
+            background: var(--accent-lavender);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .love-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .love-item span {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--accent-pink);
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        .milestone {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .milestone::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 2px solid var(--accent-pink);
+            border-radius: 50%;
+        }
+
+        .milestone h4 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+        }
+
+        .milestone span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--accent-pink);
+            font-family: var(--serif);
+        }
+
+        .heart {
+            color: #e91e63;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            section { padding: 50px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-content reveal">
+            <h1>For my absolute favorite person, Alicia</h1>
+            <p>You make every moment feel like a dream come true.</p>
+        </div>
+    </header>
+
+    <section id="our-story" class="reveal">
+        <h2>Our Story</h2>
+        <div class="story-box">
+            <p>
+                It all started on <strong>March 10, 2025</strong>. We didn't meet in a coffee shop or a library; we met in <strong>Valorant</strong>. 
+                What started as a simple game turned into the most beautiful journey of my life. From clutching rounds to late-night talks that lasted until sunrise, 
+                every moment since that day has been brighter. My life changed for the better the second I met you, and I wouldn't trade a single pixel 
+                of our history for anything in the world.
+            </p>
+        </div>
+    </section>
+
+    <section id="gallery" class="reveal">
+        <h2>Beautiful Moments</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://cdn.discordapp.com/attachments/1253402303008866407/1504757385653391380/IMG_0909.png?ex=6a082605&is=6a06d485&hm=5670edc4da325255b8ecabe6855aef8b6b588cf84c07f897ec3d9cc48cbc4305&" alt="Alicia 1"></div>
+            <div class="gallery-item"><img src="https://cdn.discordapp.com/attachments/1253402303008866404/1504757386064298014/IMG_1754.jpg?ex=6a082605&is=6a06d485&hm=3ae96580cbb6bcce30b3395f20e05db5fd90700eace3c3fe14ed8689b4ee6319&" alt="Alicia 2"></div>
+            <div class="gallery-item"><img src="https://cdn.discordapp.com/attachments/1253402303008866407/1504757386491990036/IMG_2144.jpg?ex=6a082605&is=6a06d485&hm=cf331d96c1201bcd6e81bca0e35ceccf7e191b49baba38476c7024f7803ae778&" alt="Alicia 3"></div>
+            <div class="gallery-item"><img src="https://cdn.discordapp.com/attachments/1253402303008866407/1504757387259678800/IMG_2316.png?ex=6a082606&is=6a06d486&hm=6e9b477272ca14628e2ae1a6fa3f077c82c5120e1ede9acd5b228f784e43e0f8&" alt="Alicia 4"></div>
+            <div class="gallery-item"><img src="https://cdn.discordapp.com/attachments/1253402303008866407/1504757387800608878/IMG_2875.jpg?ex=6a082606&is=6a06d486&hm=199ff7c2bf1cdcb0c915da65acc12646b2c9d0de68d127f762b0e875fbdaf6e5&" alt="Alicia 5"></div>
+            <div class="gallery-item"><img src="https://cdn.discordapp.com/attachments/1253402303008866407/1504757388392136765/IMG_2350.jpg?ex=6a082606&is=6a06d486&hm=a27d0da3b9b36bbd33fd10155ee1ee753f6258b65d91d49e2b90bc9609384fd4&" alt="Alicia 6"></div>
+        </div>
+    </section>
+
+    <section id="why-i-love-you" class="reveal">
+        <h2>Why I Love You</h2>
+        <ul class="love-list">
+            <li class="love-item"><span>❤️</span>Your radiant smile that lights up the darkest days.</li>
+            <li class="love-item"><span>❤️</span>The way you support me in everything I do.</li>
+            <li class="love-item"><span>❤️</span>Your incredible passion for making stuff for me.</li>
+            <li class="love-item"><span>❤️</span>How you make me laugh until my stomach hurts.</li>
+        </ul>
+    </section>
+
+    <section id="milestones" class="reveal">
+        <h2>Our Milestones</h2>
+        <div class="timeline">
+            <div class="milestone">
+                <h4>First Date</h4>
+                <span>The day we finally stepped out of the game and into each other's arms.</span>
+            </div>
+            <div class="milestone">
+                <h4>Our First Trip</h4>
+                <span>Exploring new places and making memories that stay forever.</span>
+            </div>
+            <div class="milestone">
+                <h4>Today</h4>
+                <span>Celebrating us and looking forward to a thousand more tomorrows.</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Forever & Always, <br><strong>[Rinas]</strong></p>
+        <div class="heart" style="margin-top: 15px;">❤</div>
+    </footer>
+
+    <script>
+        // Smooth scroll fade-in effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
